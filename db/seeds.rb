@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Product.delete_all
-Product.create!(title: 'Jurassic Park',
+product = Product.create!(title: 'Jurassic Park',
                 description:
                   %{<p>One of the highest grossing films in history,
                       Jurassic Park brings you an adventure-filled experience.
@@ -18,7 +18,17 @@ Product.create!(title: 'Jurassic Park',
                       to survive among the prehistoric predators. Come back for an adventure
                       so spectacular you'll want to watch it again and again.
                   </p>}, price: 20.00)
-Product.create!(title: 'The Avengers',
+if product.persisted?
+  review_num = 0
+  rand(1..20).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num}  for Jurassic Park"
+    )
+  end
+end
+product = Product.create!(title: 'The Avengers',
                 description:
                   %{<p>Marvel Studios presents The Avengers,
                       the most spectacular superhero team of all time,
@@ -29,7 +39,17 @@ Product.create!(title: 'The Avengers',
                       urgently needs to find a team to save the world from the greatest disaster of all.
                       So begins a worldwide search for new recruits.
                   </p>}, price: 15.00)
-Product.create!(title: "Schindler's List",
+if product.persisted?
+  review_num = 0
+  rand(1..10).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num} for The Avengers"
+    )
+  end
+end
+product = Product.create!(title: "Schindler's List",
                 description:
                   %{<p>Schindler's List,
                     one of the most significant films of all time.
@@ -42,7 +62,17 @@ Product.create!(title: "Schindler's List",
                     supervised by Steven Spielberg, Schindler's List is a powerful story whose lessons of
                     courage and faith continue to inspire generations.
                   </p>}, price: 16.99)
-Product.create!(title: 'Gladiator',
+if product.persisted?
+  review_num = 0
+  rand(1..5).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num} for Schindler's List"
+    )
+  end
+end
+product = Product.create!(title: 'Gladiator',
                 description:
                   %{<p>Gladiator is a fascinating combination of realistic
                     action and extraordinary legend with a powerful and energetic performance by Russell Crowe.
@@ -52,14 +82,34 @@ Product.create!(title: 'Gladiator',
                     Maximus tries to save his wife and son but by the time he arrives it is too late, Commodus has beaten him to it.
                     Maximus returns to Rome as a gladiator seeking revenge.
                   </p>}, price: 18.15)
-Product.create!(title: 'The Pianist',
+if product.persisted?
+  review_num = 0
+  rand(1..15).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num} for Gladiator"
+    )
+  end
+end
+product = Product.create!(title: 'The Pianist',
                 description:
                   %{<p>Wladyslaw Szpilman (Adrien Brody) was one of Poland's best-known pianists, but when the war broke out,
                     like so many Jews, Szpilman and his family were evicted from their flat and crowded together with thousands of
                     others into the Warsaw ghetto, where the pianist eked out a living as best he could, playing in the bars where
                     collaborators and black market dealers gathered.
                   </p>}, price: 35.99)
-Product.create!(title: 'Inside Out',
+if product.persisted?
+  review_num = 0
+  rand(1..3).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num} for The Pianist"
+    )
+  end
+end
+product = Product.create!(title: 'Inside Out',
                 description:
                   %{<p>Growing up can be a bumpy road and Riley is no exception. She is forced to leave her life in the
                     American Midwest behind because her father finds a new job in San Francisco. Like all of us, Riley is
@@ -69,3 +119,13 @@ Product.create!(title: 'Inside Out',
                     tries to maintain a positive attitude, conflicting emotions arise as she has to cope with a new city,
                     a new house and a new school.
                   </p>}, price: 35.99)
+if product.persisted?
+  review_num = 0
+  rand(1..23).times do
+    review_num += 1
+    product.reviews.create!(
+      rating: rand(1..5),
+      description: "It's the review number #{review_num} for Inside Out"
+    )
+  end
+end
