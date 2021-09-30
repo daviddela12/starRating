@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_30_195046) do
+ActiveRecord::Schema.define(version: 2021_09_30_204533) do
 
   create_table "products", force: :cascade do |t|
     t.string "title"
@@ -29,5 +29,5 @@ ActiveRecord::Schema.define(version: 2021_09_30_195046) do
     t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
-  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "products", on_delete: :cascade
 end
