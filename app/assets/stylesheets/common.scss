@@ -1,11 +1,19 @@
 /**
 Every general style potentially used in all pages
  */
+body {
+  font-family: Roboto, Arial;
+  font-size: 14px;
+  font-weight: 500;
+}
 a {
   font-family: Roboto, Arial;
   font-size: 1rem;
   font-weight: 700;
   text-decoration: none;
+}
+input[type="submit"] {
+  border: none;
 }
 .btn {
   border-radius: 5px;
@@ -23,14 +31,35 @@ a {
     }
   }
   &.btn-secondary {
-
+    background-color: $bg-btn-secondary;
+    &:hover{
+      background-color: $bg-btn-secondary-hover;
+    }
   }
   &.btn-danger {
-
+    background-color: $bg-btn-danger;
+    &:hover {
+      background-color: $bg-btn-danger-hover;
+    }
   }
   &.btn-warning {
-
+    background-color: $bg-btn-warning;
+    &:hover {
+      background-color: $bg-btn-warning-hover;
+    }
   }
+}
+.notice, #notice {
+    border-radius: 0.5em;
+    font-family: Roboto, Arial;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1em;
+    padding: 1em 1.414em;
+    background-color: #ffb;
+    border: #882 0.177em solid;
+    color: #882;
 }
 .d-flex {
   display: flex;
