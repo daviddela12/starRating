@@ -10,6 +10,26 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="d-flex align-center justify-start flex-row" style="z-index: 9;">
+        <h1>Star Rating</h1>
+    </header>
+    <section class="page-content d-flex flex-wrap">
+      <nav>
+        <ul>
+          <li>
+            <a>Front-end JS</a>
+          </li>
+          <li>
+            <a>Front-end PureCSS</a>
+          </li>
+          <li>
+            <a href="<%= products_url %>">Back-end</a>
+          </li>
+        </ul>
+      </nav>
+      <main class="<%= controller_name %>" style="flex-basis: 0;flex-grow:9;">
+        <%= yield %>
+      </main>
+    </section>
   </body>
 </html>

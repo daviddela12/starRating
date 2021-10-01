@@ -1,0 +1,49 @@
+/**
+Every general style potentially used in all pages
+ */
+a {
+  font-family: Roboto, Arial;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.btn {
+  border-radius: 5px;
+  color: #FFF;
+  display: inline-block;
+  font-family: Roboto, Arial;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  &.btn-primary {
+    background-color: $bg-btn-primary;
+    &:hover {
+      background-color: $bg-btn-primary-hover;
+    }
+  }
+  &.btn-secondary {
+
+  }
+  &.btn-danger {
+
+  }
+  &.btn-warning {
+
+  }
+}
+.d-flex {
+  display: flex;
+  &.flex-row {
+    flex-direction: row;
+  }
+  &.align-center {
+    align-items: center;
+  }
+  &.justify-start {
+    justify-content: flex-start;
+  }
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+}

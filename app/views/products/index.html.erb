@@ -14,7 +14,7 @@
 
   <tbody>
     <% @products.each do |product| %>
-      <tr>
+      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
         <td><%= product.title %></td>
         <td><%= product.description %></td>
         <td><%= product.price %></td>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<%= link_to 'New Product', new_product_path, class: 'btn btn-primary' %>

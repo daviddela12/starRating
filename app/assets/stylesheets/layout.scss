@@ -1,0 +1,53 @@
+body {
+  background-color: $bg-body;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: $bg-header;
+  left: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  position: sticky;
+  position: -webkit-sticky;
+  height: 5rem;
+  top: 0;
+  h1 {
+    color: #FFF;
+    font-family: Roboto, Arial;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+.page-content {
+  nav {
+    background-color: $bg-sidebar;
+    flex-basis: 9rem;
+    flex-grow: 1;
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+      li {
+        &:hover {
+          background-color: #000;
+        }
+        a {
+          color: #FFF;
+          cursor: pointer;
+          display: block;
+          font-family: Roboto, Arial;
+          font-size: 1rem;
+          font-weight: 700;
+          padding: 1rem;
+          width: inherit;
+          &:hover {
+          }
+        }
+      }
+    }
+  }
+  main {
+    padding: 2rem;
+  }
+}
