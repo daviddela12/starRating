@@ -23,19 +23,30 @@
   <h4>
     <a><%= @product.title %></a>
   </h4>
+  <div class="d-flex flex-row align-center">
+    <p class="medium-rate">3.8</p>
+    <div id="starRatingSummary">
+    </div>
+  </div>
   <%= render "reviews/form", review: @review, product: @product %>
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">
+    <% i=0; %>
     <% @product.reviews.each do |review| %>
       <div class="d-flex flex-column">
-        <div>
-          <%= review.rating %>
+        <div class="d-flex flex-row align-center justify-between" style="margin-bottom: 1rem;">
+          <div id="starRatingReview<%= i %>">
+            <input type="hidden" id="starRatingReview<%= i %>Value" value="<%= review.rating %>"/>
+          </div>
+          <%= review.created_at.strftime('%-d-%-m-%Y %H:%M:%S') %>
         </div>
         <div>
           <%= review.description %>
         </div>
       </div>
+      <% i += 1 %>
     <% end %>
   </div>
 </div>
+<%= javascript_pack_tag 'rating/main', 'type': 'module' %>
