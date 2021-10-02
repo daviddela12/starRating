@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  include ReviewControl
+
   before_action :set_product, only: %i[ show ]
 
   def index
@@ -6,11 +8,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    if flash[:review].nil?
-      @review = Review.new
-    else
-      @review = Review.new(flash[:review])
-    end
+    @review = review_init
   end
 
   private
