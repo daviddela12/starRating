@@ -1,2 +1,37 @@
-<h1>Product#show</h1>
-<p><%= @product.title %></p>
+<h1>Product details</h1>
+<div class="grid grid-details">
+  <div class="grid-product">
+    <div class="d-flex flex-column justify-center align-center">
+      <div class="grid-product__bg"></div>
+      <h3 class="grid-product__title">
+        <a href="<%= product_show_path(id: @product) %>"><%= @product.title %></a>
+      </h3>
+      <div class="grid-product__description">
+        <%= sanitize(@product.description) %>
+      </div>
+      <div class="grid-product__price">
+        <%= number_to_currency(@product.price) %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="block">
+  <h4>
+    <a><%= @product.title %></a>
+  </h4>
+  Form to create review
+  <hr>
+  <h3>Reviews</h3>
+  <div class="list-reviews">
+    <% @product.reviews.each do |review| %>
+      <div class="d-flex flex-column">
+        <div>
+          <%= review.rating %>
+        </div>
+        <div>
+          <%= review.description %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
