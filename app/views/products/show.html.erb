@@ -19,23 +19,5 @@
 <% if notice %>
   <p id="notice"><%= notice %></p>
 <% end %>
-<div class="block">
-  <h4>
-    <a><%= @product.title %></a>
-  </h4>
-  <%= render "reviews/form", review: @review, product: @product %>
-  <hr>
-  <h3>Reviews</h3>
-  <div class="list-reviews">
-    <% @product.reviews.each do |review| %>
-      <div class="d-flex flex-column">
-        <div>
-          <%= review.rating %>
-        </div>
-        <div>
-          <%= review.description %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
+
+<%= render "reviews/all", review: @review, product: @product %>

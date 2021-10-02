@@ -1,5 +1,7 @@
 module Admin
   class ProductsController < ApplicationController
+    include ReviewControl
+
     before_action :set_product, only: %i[ show edit update destroy ]
 
     # GET /products or /products.json
@@ -9,6 +11,7 @@ module Admin
 
     # GET /products/1 or /products/1.json
     def show
+      @review = review_init
     end
 
     # GET /products/new
