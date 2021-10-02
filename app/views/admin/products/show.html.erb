@@ -14,7 +14,7 @@
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_currency(@product.price) %>
 </p>
 
 <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn btn-warning' %> |
