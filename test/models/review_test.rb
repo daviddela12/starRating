@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ReviewTest < ActiveSupport::TestCase
 
-  test 'review attributes must not be empty' do
+  test 'reviews attributes must not be empty' do
     review = Review.new
     assert review.invalid?
     assert review.errors[:product].any?
@@ -10,7 +10,7 @@ class ReviewTest < ActiveSupport::TestCase
     assert review.errors[:description].any?
   end
 
-  test 'review must be greater than 0' do
+  test 'reviews must be greater than 0' do
     review = reviews(:frozenReview1)
     assert review.valid?
     review.rating = 0
@@ -19,7 +19,7 @@ class ReviewTest < ActiveSupport::TestCase
     assert review.invalid?
   end
 
-  test 'review must be less or equal to 5' do
+  test 'reviews must be less or equal to 5' do
     review = reviews(:frozenReview1)
     assert review.valid?
     review.rating = 5

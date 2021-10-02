@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'product/index'
-  get 'product/show'
+  post 'reviews/create'
+  get 'products/index'
+  get 'products/show'
   namespace :admin do
     resources :products
   end

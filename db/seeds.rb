@@ -24,7 +24,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num}  for Jurassic Park"
+      description: "It's the reviews number #{review_num}  for Jurassic Park"
     )
   end
 end
@@ -45,7 +45,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num} for The Avengers"
+      description: "It's the reviews number #{review_num} for The Avengers"
     )
   end
 end
@@ -68,7 +68,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num} for Schindler's List"
+      description: "It's the reviews number #{review_num} for Schindler's List"
     )
   end
 end
@@ -88,7 +88,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num} for Gladiator"
+      description: "It's the reviews number #{review_num} for Gladiator"
     )
   end
 end
@@ -105,7 +105,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num} for The Pianist"
+      description: "It's the reviews number #{review_num} for The Pianist"
     )
   end
 end
@@ -125,7 +125,7 @@ if product.persisted?
     review_num += 1
     product.reviews.create!(
       rating: rand(1..5),
-      description: "It's the review number #{review_num} for Inside Out"
+      description: "It's the reviews number #{review_num} for Inside Out"
     )
   end
 end

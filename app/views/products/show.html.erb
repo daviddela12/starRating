@@ -4,7 +4,7 @@
     <div class="d-flex flex-column justify-center align-center">
       <div class="grid-product__bg"></div>
       <h3 class="grid-product__title">
-        <a href="<%= product_show_path(id: @product) %>"><%= @product.title %></a>
+        <a href="<%= products_show_path(id: @product) %>"><%= @product.title %></a>
       </h3>
       <div class="grid-product__description">
         <%= sanitize(@product.description) %>
@@ -15,11 +15,12 @@
     </div>
   </div>
 </div>
+<%= link_to 'Back', products_index_path %>
 <div class="block">
   <h4>
     <a><%= @product.title %></a>
   </h4>
-  Form to create review
+  <%= render "reviews/form", review: @review, product: @product %>
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">
