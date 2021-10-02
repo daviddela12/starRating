@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     respond_to do |format|
       if @review.save
-        format.html { redirect_to products_show_url(product), notice: "Review was successfully created." }
+        format.html { redirect_to products_show_url(id: product), notice: "Review was successfully created." }
         format.json { render products_show_url(product), status: :created, location: @review }
       else
-        format.html { redirect_to products_show_url(id: product), flash: {review: @review, review_errors: @review.errors.full_messages}, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
+        format.html { redirect_to products_show_url(id: product), flash: {review: @review, review_errors: @review.errors.full_messages} }
+        format.json { render json: @review.errors }
       end
     end
   end
