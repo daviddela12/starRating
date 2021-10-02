@@ -19,7 +19,7 @@
       <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
         <td><%= product.title %></td>
         <td><%= sanitize(product.description) %></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency(product.price) %></td>
         <td><%= link_to 'Show', admin_product_url(product), :class => 'btn btn-secondary' %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product), :class => 'btn btn-warning' %></td>
         <td><%= link_to 'Destroy', admin_product_url(product), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
