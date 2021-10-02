@@ -7,9 +7,9 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference('Review.count') do
-      post reviews_create_url, params: { review: { description: @review.description, rating: @review.rating, product_id: @review.product.product_id } }
+      post reviews_create_url, params: { review: { description: @review.description, rating: @review.rating, product_id: @review.product_id } }
     end
-    product = Product.find(@review.product.product_id)
+    product = Product.find(@review.product_id)
     assert_redirected_to products_show_url(product)
   end
 
