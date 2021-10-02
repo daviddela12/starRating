@@ -2,6 +2,7 @@
 $bg-header: #282A35;
 $bg-body: #eff2f5;
 $bg-sidebar: #1e1e2d;
+$color-text-primary: #1e1e2d;
 
 $bg-btn-primary: #007bff;
 $bg-btn-primary-hover: #4C7DB2;
@@ -69,18 +70,32 @@ input[type="submit"] {
 }
 .d-flex {
   display: flex;
-  &.flex-row {
-    flex-direction: row;
+}
+@media screen and (min-width: 991px) {
+  .d-md-flex {
+    display: flex;
   }
-  &.align-center {
-    align-items: center;
-  }
-  &.justify-start {
-    justify-content: flex-start;
-  }
-  &.flex-wrap {
-    flex-wrap: wrap;
-  }
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.align-center {
+  align-items: center;
+}
+.align-start {
+  align-items: start;
+}
+.justify-start {
+  justify-content: flex-start;
+}
+.justify-center {
+  justify-content: center;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 body {
   background-color: $bg-body;
@@ -89,6 +104,22 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
+}
+h1 {
+  a {
+    color: #FFF;
+    font-family: Roboto, Arial;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+}
+h3 {
+  a {
+    color: $color-text-primary;
+    font-family: Roboto, Arial;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
 }
 header {
   background-color: $bg-header;
@@ -99,23 +130,18 @@ header {
   position: -webkit-sticky;
   height: 5rem;
   top: 0;
-  h1 {
-    color: #FFF;
-    font-family: Roboto, Arial;
-    font-size: 2rem;
-    font-weight: 700;
-  }
 }
 .page-content {
   nav {
     background-color: $bg-sidebar;
     flex-basis: 9rem;
     flex-grow: 1;
-    @media (min-width: 991px) {
+    @media screen and (min-width: 991px) {
       min-height: 91vh;
     }
     ul {
       list-style-type: none;
+      margin: 0;
       padding-left: 0;
       li {
         &:hover {
@@ -137,6 +163,52 @@ header {
     }
   }
   main {
+    flex-basis: 0;
+    flex-grow: 10;
     padding: 2rem;
+  }
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    .grid-product {
+      background-color: #FFF;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+      .grid-product__bg {
+        background-image: url("bg-movie.jpg");
+        background-position: bottom center;
+        background-size: cover;
+        height: 50px;
+        width: 100%;
+      }
+      .grid-product__title {
+        padding: 1rem 1rem 0 1rem;
+        text-align: center;
+      }
+      .grid-product__description {
+        align-self: start;
+        font-weight: 300;
+        max-height: 110px;
+        overflow-y: hidden;
+        padding: 0 1rem;
+        p {
+          margin: 0;
+        }
+      }
+      .grid-product__price {
+        align-self: end;
+        font-size: 1.1rem;
+        padding: 1rem;
+      }
+      .grid-product__action {
+        width: 100%;
+        a {
+          display: block;
+          margin: 1rem;
+        }
+      }
+    }
   }
 }
