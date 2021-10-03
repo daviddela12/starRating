@@ -1,0 +1,14 @@
+<%= turbo_frame_tag dom_id(review) do %>
+  <div class="d-flex flex-column">
+    <div class="d-flex flex-row align-center justify-between" style="margin-bottom: 1rem;">
+      <div class="starRatingReview">
+        <input type="hidden" class="starRatingReviewValue" value="<%= review.rating %>"/>
+      </div>
+      <%= review.created_at.strftime('%d-%-m-%Y %H:%M:%S') %>
+    </div>
+    <div>
+      <%= review.description %>
+    </div>
+  </div>
+  <hr>
+<% end %>

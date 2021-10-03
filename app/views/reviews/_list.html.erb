@@ -1,0 +1,4 @@
+<% reviews.each do |review_record| %>
+  <%= render "reviews/review", review: review_record %>
+<% end %>
+<%= javascript_pack_tag 'rating/main_list', 'type': 'module' %>
