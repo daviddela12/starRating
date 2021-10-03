@@ -1,6 +1,13 @@
 /**
  * Star Rating JS Plugin
  * Based on https://github.com/fredolss/rater-js
+ * @params
+ * element - html container where we want to hook the star rating
+ * starMax - num of stars
+ * starSize - size of stars
+ * starStep - for example if we want to allow half star this value is 0.5
+ * rating - value of the rating on init
+ * readOnly - if we can't change the value of the star rating
  * @author: dcruz
  */
 export class Rating {
@@ -79,7 +86,6 @@ export class Rating {
                     }
                 }
             }
-            //todo: check why this happens and fix
             if(current.currentRating > current.stars) {
                 current.currentRating = current.stars;
             }
@@ -88,23 +94,28 @@ export class Rating {
     }
 
     onStarOut(e, current) {
-        if (!this.rating) {
-            this.element.querySelector(".star-value").style.width = "0%";
-            this.element.removeAttribute("data-rating");
+        if (!current.rating) {
+            current.element.querySelector(".star-value").style.width = "0%";
+            current.element.removeAttribute("data-rating");
         }else {
-            this.element.querySelector(".star-value").style.width = this.rating/this.stars * 100 + "%";
-            this.element.setAttribute("data-rating", this.rating);
+            current.element.querySelector(".star-value").style.width = current.rating/current.stars * 100 + "%";
+            current.element.setAttribute("data-rating", current.rating);
         }
     }
 
-    onStarClick(e) {
-        if (this.readOnly === true || this.isRating === true) {
+    onStarClick(e, current) {
+        if (current.readOnly === true || current.isRating === true) {
             return;
         }
+        current.element.querySelector('.star-value').classList.remove('animate');
+        const newStarValue = current.element.querySelector('.star-value').cloneNode(true);
+        current.element.replaceChild(newStarValue, current.element.querySelector('.star-value'));
+        current.element.querySelector('.star-value').classList.add('animate');
+        current.setRating(current.currentRating);
 
-        if (typeof callback !== "undefined") {
-            this.isRating = true;
-            this.myRating = this.currentRating;
+        if ( typeof current.element.querySelector('input#review_rating') !== "undefined"
+            || current.element.querySelector('input#review_rating') !== null ) {
+            current.element.querySelector('input#review_rating').value = current.currentRating;
         }
     }
 

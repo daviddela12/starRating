@@ -23,3 +23,23 @@
 .star-rating.is-busy {
     cursor: wait;
 }
+.animate {
+    -webkit-animation: stretch-bounce .5s ease-in-out;
+}
+@keyframes stretch-bounce {
+    0% {
+        -webkit-transform: scale(1);
+    }
+    25% {
+        -webkit-transform: scale(1.2);
+    }
+    50% {
+        -webkit-transform: scale(0.9);
+    }
+    75% {
+        -webkit-transform: scale(1.2);
+    }
+    100% {
+        -webkit-transform: scale(1);
+    }
+}
