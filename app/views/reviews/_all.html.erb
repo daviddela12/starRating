@@ -19,7 +19,7 @@
           <div id="starRatingReview<%= i %>">
             <input type="hidden" id="starRatingReview<%= i %>Value" value="<%= review_record.rating %>"/>
           </div>
-          <%= review_record.created_at.strftime('%-d-%-m-%Y %H:%M:%S') %>
+          <%= review_record.created_at.strftime('%d-%-m-%Y %H:%M:%S') %>
         </div>
         <div>
           <%= review_record.description %>
