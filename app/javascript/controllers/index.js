@@ -3,5 +3,8 @@
 
 import { application } from "./application"
 
+import RatingController from "./rating_controller"
+application.register("rating", RatingController)
+
 import ReviewController from "./review_controller"
 application.register("review", ReviewController)

@@ -1,4 +1,4 @@
-<div class="block">
+<div class="block" data-controller="rating">
   <h4>
     <a><%= product.title %></a>
   </h4>
@@ -14,10 +14,10 @@
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">
-
     <%= turbo_frame_tag :reviews do %>
-      <%= render product.reviews %>
+      <% product.reviews.each do |review_record| %>
+        <%= render "reviews/review", review: review_record %>
+      <% end %>
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'rating/main', 'type': 'module' %>
