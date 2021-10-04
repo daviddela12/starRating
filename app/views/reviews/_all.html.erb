@@ -8,17 +8,16 @@
       <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
     </div>
   </div>
-  <%= turbo_stream_from "reviews" %>
+  <%= turbo_stream_from :reviews %>
 
   <%= render "reviews/form", review: review, product: product %>
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">
 
-    <%= turbo_frame_tag "reviews" do %>
-      <%= render "reviews/list", reviews: product.reviews %>
+    <%= turbo_frame_tag :reviews do %>
+      <%= render product.reviews %>
     <% end %>
   </div>
-
 </div>
 <%= javascript_pack_tag 'rating/main', 'type': 'module' %>

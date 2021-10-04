@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  after_create_commit { broadcast_prepend_to('reviews') }
+  after_create_commit { broadcast_prepend_to :reviews }
 
   belongs_to :product
 
