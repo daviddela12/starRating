@@ -1,16 +1,11 @@
-<div class="block" data-controller="rating">
+<div class="block">
   <h4>
-    <a><%= product.title %></a>
+    <a href="<%= products_show_path(id: product) %>"><%= product.title %></a>
   </h4>
-  <div class="d-flex flex-row align-center" style="padding: 1rem;">
-    <p class="medium-rate"><%= average_reviews(product) %></p>
-    <div id="starRatingSummary">
-      <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
-    </div>
-  </div>
   <%= turbo_stream_from :reviews %>
-
-  <%= render "reviews/form", review: review, product: product %>
+  <%= turbo_frame_tag :new_review_form do %>
+    <%= render "reviews/form", review: review, product: product %>
+  <% end %>
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">

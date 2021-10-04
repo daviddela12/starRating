@@ -9,8 +9,9 @@ class ReviewsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Review.count') do
       post reviews_create_url, params: { review: { description: @review.description, rating: @review.rating, product_id: @review.product_id } }
     end
-    product = Product.find(@review.product_id)
-    assert_redirected_to products_show_url(product)
+    # redirect without ajax call
+    #product = Product.find(@review.product_id)
+    #assert_redirected_to products_show_url(product)
   end
 
 end

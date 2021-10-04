@@ -3,8 +3,11 @@
 
 import { application } from "./application"
 
-import RatingController from "./rating_controller"
-application.register("rating", RatingController)
+import RatingFormController from "./rating_form_controller"
+application.register("rating-form", RatingFormController)
+
+import RatingSummaryController from "./rating_summary_controller"
+application.register("rating-summary", RatingSummaryController)
 
 import ReviewController from "./review_controller"
 application.register("review", ReviewController)
