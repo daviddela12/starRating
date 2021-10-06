@@ -1,0 +1,33 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+        <td><%= product.title %></td>
+        <td><%= sanitize(product.description) %></td>
+        <td><%= number_to_currency(product.price) %></td>
+        <td><%= link_to 'Show', admin_product_url(product), :class => 'btn btn-secondary' %></td>
+        <td><%= link_to 'Edit', edit_admin_product_path(product), :class => 'btn btn-warning' %></td>
+        <td><%= link_to 'Destroy', admin_product_url(product), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_admin_product_path, class: 'btn btn-primary' %>

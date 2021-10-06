@@ -1,0 +1,18 @@
+<div class="block">
+  <h4>
+    <a href="<%= products_show_path(id: product) %>"><%= product.title %></a>
+  </h4>
+  <%= turbo_stream_from :reviews %>
+  <%= turbo_frame_tag :new_review_form do %>
+    <%= render "reviews/form", review: review, product: product %>
+  <% end %>
+  <hr>
+  <h3>Reviews</h3>
+  <div class="list-reviews">
+    <%= turbo_frame_tag :reviews do %>
+      <% product.reviews.each do |review_record| %>
+        <%= render "reviews/review", review: review_record %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

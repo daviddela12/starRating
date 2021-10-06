@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+frozen:
+  title: Frozen
+  description: Anna, a born optimist, joins forces with Kristoff, a daredevil mountaineer, and his reindeer sidekick Sven.
+               Together they embark on an epic journey in search of Elsa.
+  price: 19.99
+
+coco:
+  title: Coco
+  description: In Disney-Pixar's fun-filled family adventure, a young musician named Miguel embarks on an extraordinary
+               journey to the magical land of his ancestors.
+  price: 29.99

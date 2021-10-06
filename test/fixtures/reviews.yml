@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+frozenReview1:
+  rating: 3
+  description: My kids love this film
+  product: frozen
+
+cocoReview1:
+  rating: 2.5
+  description: It's too sad to watch alone
+  product: coco

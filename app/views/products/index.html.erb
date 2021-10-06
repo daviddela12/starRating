@@ -1,0 +1,22 @@
+<h1>Welcome to Star Rating</h1>
+<div class="grid">
+  <% @products.each do |product| %>
+    <div class="grid-product">
+      <div class="d-flex flex-column justify-center align-center">
+        <div class="grid-product__bg"></div>
+        <h3 class="grid-product__title">
+          <a href="<%= products_show_path(id: product) %>"><%= product.title %></a>
+        </h3>
+        <div class="grid-product__description">
+          <%= sanitize(product.description) %>
+        </div>
+        <div class="grid-product__price">
+          <%= number_to_currency(product.price) %>
+        </div>
+        <div class="grid-product__action">
+          <%= link_to "Go to movie", products_show_path(id: product), :class => 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

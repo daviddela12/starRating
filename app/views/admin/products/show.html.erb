@@ -1,0 +1,23 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= sanitize(@product.description) %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@product.price) %>
+</p>
+
+<%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn btn-warning' %> |
+<%= link_to 'Back', admin_products_path %>
+
+<%= render "reviews/all", review: @review, product: @product %>

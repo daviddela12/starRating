@@ -1,0 +1,20 @@
+<h1>Product details</h1>
+<div class="grid grid-details">
+  <div class="grid-product">
+    <div class="d-flex flex-column justify-center align-center">
+      <div class="grid-product__bg"></div>
+      <h3 class="grid-product__title">
+        <a href="<%= products_show_path(id: @product) %>"><%= @product.title %></a>
+      </h3>
+      <div class="grid-product__description">
+        <%= sanitize(@product.description) %>
+      </div>
+      <div class="grid-product__price">
+        <%= number_to_currency(@product.price) %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= link_to 'Back', products_index_path %>
+
+<%= render "reviews/all", review: @review, product: @product %>
