@@ -1,52 +1,57 @@
-<div id="<%= dom_id(review)%>">
-  <div class="d-flex flex-row align-center" style="padding: 1rem;" data-controller="rating-summary">
-    <p class="medium-rate"><%= average_reviews(product) %></p>
-    <div id="starRatingSummary">
-      <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
+<div id="<%= dom_id(review)%>" class="d-md-flex flex-row justify-between align-start">
+  <div>
+    <h2>Rating Average:</h2>
+    <div class="d-flex flex-row align-center" style="padding: 1rem;" data-controller="rating-summary">
+      <p class="medium-rate"><%= average_reviews(product) %></p>
+      <div id="starRatingSummary">
+        <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
+      </div>
     </div>
   </div>
-  <div class="new-review-form">
-    <h2>New review</h2>
-    <%= form_with( url: reviews_create_url, model: review) do |form| %>
-      <% if notice %>
-        <p id="notice"><%= notice %></p>
-      <% end %>
-      <% if flash[:review_errors] %>
-        <div id="error_explanation">
-          <h2><%= pluralize(flash[:review_errors].size, "error") %> prohibited this review from being saved:</h2>
+  <div>
+    <div class="new-review-form">
+      <h2>New review</h2>
+      <%= form_with( url: reviews_create_url, model: review) do |form| %>
+        <% if notice %>
+          <p id="notice"><%= notice %></p>
+        <% end %>
+        <% if flash[:review_errors] %>
+          <div id="error_explanation">
+            <h2><%= pluralize(flash[:review_errors].size, "error") %> prohibited this review from being saved:</h2>
 
-          <ul>
-            <% flash[:review_errors].each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
+            <ul>
+              <% flash[:review_errors].each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if review.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+            <ul>
+              <% review.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <%= form.hidden_field :product_id, :value => product.id %>
+        <%= form.label :rating %>
+        <div style="margin-bottom: 1rem;margin-top:1rem;padding: 1rem;" data-controller="rating-form">
+          <div id="starRatingForm">
+            <%= form.hidden_field :rating, :value => review.rating %>
+          </div>
         </div>
-      <% end %>
-      <% if review.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-          <ul>
-            <% review.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description, :value => review.description, rows: 10, cols: 60 %>
         </div>
-      <% end %>
-      <%= form.hidden_field :product_id, :value => product.id %>
-      <%= form.label :rating %>
-      <div style="margin-bottom: 1rem;margin-top:1rem;padding: 1rem;" data-controller="rating-form">
-        <div id="starRatingForm">
-          <%= form.hidden_field :rating, :value => review.rating %>
-        </div>
-      </div>
-      <div class="field">
-        <%= form.label :description %>
-        <%= form.text_area :description, :value => review.description, rows: 10, cols: 60 %>
-      </div>
 
-      <div class="actions">
-        <%= form.submit :class => 'btn btn-primary' %>
-      </div>
-    <% end %>
+        <div class="actions">
+          <%= form.submit :class => 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
