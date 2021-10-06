@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   include ReviewControl
 
-  before_action :set_product, only: %i[ show ]
+  before_action :set_product, only: %i[show]
 
   def index
     @products = Product.all.order('title')
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   private
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
+    def set_product
+      @product = Product.find(params[:id])
+    end
 end
