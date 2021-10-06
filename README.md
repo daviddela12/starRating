@@ -1,7 +1,9 @@
 # README
 
-
-
+* **Author**
+daviddela
+* **App version**
+1.0
 * **Ruby version**
   2.6.5
 * **Arquitectura:** Tras visualizar y dibujar el modelo de dominio que haría falta, desarrollé inicialmente el modelo, junto con sus test unitarios.
