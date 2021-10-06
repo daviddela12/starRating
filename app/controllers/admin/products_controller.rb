@@ -2,7 +2,7 @@ module Admin
   class ProductsController < ApplicationController
     include ReviewControl
 
-    before_action :set_product, only: %i[ show edit update destroy ]
+    before_action :set_product, only: %i[show edit update destroy]
 
     # GET /products or /products.json
     def index
@@ -62,12 +62,12 @@ module Admin
 
     private
 
-    def set_product
-      @product = Product.find(params[:id])
-    end
+      def set_product
+        @product = Product.find(params[:id])
+      end
 
-    def product_params
-      params.require(:product).permit(:title, :description, :price)
-    end
+      def product_params
+        params.require(:product).permit(:title, :description, :price)
+      end
   end
 end
