@@ -1,32 +1,18 @@
 <div class="block">
   <h4>
-    <a><%= product.title %></a>
+    <a href="<%= products_show_path(id: product) %>"><%= product.title %></a>
   </h4>
-  <div class="d-flex flex-row align-center" style="padding: 1rem;">
-    <p class="medium-rate"><%= average_reviews(product) %></p>
-    <div id="starRatingSummary">
-      <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
-    </div>
-  </div>
-  <%= render "reviews/form", review: review, product: product %>
+  <%= turbo_stream_from :reviews %>
+  <%= turbo_frame_tag :new_review_form do %>
+    <%= render "reviews/form", review: review, product: product %>
+  <% end %>
   <hr>
   <h3>Reviews</h3>
   <div class="list-reviews">
-    <% i=0; %>
-    <% product.reviews.each do |review_record| %>
-      <div class="d-flex flex-column">
-        <div class="d-flex flex-row align-center justify-between" style="margin-bottom: 1rem;">
-          <div id="starRatingReview<%= i %>">
-            <input type="hidden" id="starRatingReview<%= i %>Value" value="<%= review_record.rating %>"/>
-          </div>
-          <%= review_record.created_at.strftime('%-d-%-m-%Y %H:%M:%S') %>
-        </div>
-        <div>
-          <%= review_record.description %>
-        </div>
-      </div>
-      <% i += 1 %>
+    <%= turbo_frame_tag :reviews do %>
+      <% product.reviews.each do |review_record| %>
+        <%= render "reviews/review", review: review_record %>
+      <% end %>
     <% end %>
   </div>
 </div>
-<%= javascript_pack_tag 'rating/main', 'type': 'module' %>

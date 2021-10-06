@@ -16,8 +16,5 @@
   </div>
 </div>
 <%= link_to 'Back', products_index_path %>
-<% if notice %>
-  <p id="notice"><%= notice %></p>
-<% end %>
 
 <%= render "reviews/all", review: @review, product: @product %>
