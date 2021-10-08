@@ -2,9 +2,9 @@
   <div>
     <h2>Rating Average:</h2>
     <div class="d-flex flex-row align-center" style="padding: 1rem;" data-controller="rating-summary">
-      <p class="medium-rate"><%= average_reviews(product) %></p>
+      <p class="medium-rate"><%= product.average_reviews %></p>
       <div id="starRatingSummary">
-        <input type="hidden" id="starRatingSummaryValue" value="<%= average_reviews(product) %>"/>
+        <input type="hidden" id="starRatingSummaryValue" value="<%= product.average_reviews %>"/>
       </div>
     </div>
   </div>
