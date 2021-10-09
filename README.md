@@ -22,7 +22,7 @@ Por último se realizaron los test de sistema de productos y reviews.
 * **Dificultades encontradas:** 
   * Problema con cargar el javascript. Mientras no hacía reload no me cargaba el javascript. Con turbo y la recarga ajax también se multiplicó el problema. Al final recurrí a Stimulus para poder añadir ese Javascript necesario y que de otro modo no podía.
   * También encontré problemas al cargar el scss. Porque quería mantener las variables en un scss aparte pero el orden en que cargaba ese scss hacía que a veces me fallara. Intenté varias modificaciones pero al final decidí colocarlo en el mismo fichero donde se usan dichas variables.
-  * Otra duda, ¿cómo se hace un truncate y un sanitize sobre el mismo string?
+  * Otra duda, ¿cómo se hace un truncate y un sanitize sobre el mismo string? **SOLUCIÓN:** Se hace con ```truncate(strip_tags(description), length: 80)```
   * No he encontrado la manera en un ```.each do |variable| end``` una variable de count de iteración para poder usar dentro y saber en qué iteración estoy...¿es posible eso en rails? o hay que declarar una variable fuera e ir incrementándola?
 
 * **Base de datos:** SQlite3. Lanzar ```bin/rails db:seed``` para tener una batería de datos disponible.
